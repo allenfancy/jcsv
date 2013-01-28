@@ -18,7 +18,6 @@ import com.googlecode.jcsv.writer.CSVColumnJoiner;
  */
 public class CSVColumnJoinerImpl implements CSVColumnJoiner {
 
-	@Override
 	public String joinColumns(String[] data, CSVStrategy strategy) {
 		final String delimiter = String.valueOf(strategy.getDelimiter());
 		final String quote = String.valueOf(strategy.getQuoteCharacter());

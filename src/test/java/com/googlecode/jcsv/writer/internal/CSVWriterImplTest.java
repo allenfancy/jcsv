@@ -70,7 +70,6 @@ public class CSVWriterImplTest extends TestCase {
 	}
 
 	private static class PersonEntryConverter implements CSVEntryConverter<Person> {
-		@Override
 		public String[] convertEntry(Person person) {
 			String[] token = new String[3];
 			token[0] = person.getFirstName();

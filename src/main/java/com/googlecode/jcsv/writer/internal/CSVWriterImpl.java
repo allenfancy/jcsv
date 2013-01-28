@@ -23,14 +23,12 @@ public class CSVWriterImpl<E> implements CSVWriter<E> {
 		this.columnJoiner = builder.columnJoiner;
 	}
 
-	@Override
 	public void writeAll(List<E> data) throws IOException {
 		for (E e : data) {
 			write(e);
 		}
 	}
 
-	@Override
 	public void write(E e) throws IOException {
 		StringBuilder sb = new StringBuilder();
 
@@ -43,12 +41,10 @@ public class CSVWriterImpl<E> implements CSVWriter<E> {
 		writer.append(sb.toString());
 	}
 
-	@Override
 	public void flush() throws IOException {
 		writer.flush();
 	}
 
-	@Override
 	public void close() throws IOException {
 		writer.close();
 	}

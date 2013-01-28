@@ -18,7 +18,6 @@ public class DefaultCSVEntryConverter implements CSVEntryConverter<String[]> {
 	 *
 	 * @return the incoming data ;)
 	 */
-	@Override
 	public String[] convertEntry(String[] data) {
 		return data;
 	}

@@ -16,7 +16,6 @@ public class CharacterProcessor implements ValueProcessor<Character> {
 	 * @throws IllegalArgumentException
 	 *             if the value's length is not 1
 	 */
-	@Override
 	public Character processValue(String value) {
 		if (value == null || value.length() != 1) {
 			throw new IllegalArgumentException(String.format("%s is not a valud character, it's length must be 1",

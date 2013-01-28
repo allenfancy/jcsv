@@ -24,7 +24,6 @@ public class CSVTokenizerImpl implements CSVTokenizer {
 		NORMAL, QUOTED
 	}
 
-	@Override
 	public List<String> tokenizeLine(String line, CSVStrategy strategy, BufferedReader reader) throws IOException {
 		final char DELIMITER = strategy.getDelimiter();
 		final char QUOTE = strategy.getQuoteCharacter();

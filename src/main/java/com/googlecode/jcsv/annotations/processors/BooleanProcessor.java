@@ -15,7 +15,6 @@ public class BooleanProcessor implements ValueProcessor<Boolean> {
 	 *
 	 * @return Boolean the result
 	 */
-	@Override
 	public Boolean processValue(String value) {
 		if (value == null) return false;
 		

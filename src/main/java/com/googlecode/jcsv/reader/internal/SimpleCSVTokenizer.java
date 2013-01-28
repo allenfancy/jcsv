@@ -22,7 +22,6 @@ public class SimpleCSVTokenizer implements CSVTokenizer {
 	 * Performs a split() on the input string. Uses the delimiter specified in the csv strategy.
 	 *
 	 */
-	@Override
 	public List<String> tokenizeLine(String line, CSVStrategy strategy, BufferedReader reader) throws IOException {
 		if (line.equals("")) {
 			return new ArrayList<String>();

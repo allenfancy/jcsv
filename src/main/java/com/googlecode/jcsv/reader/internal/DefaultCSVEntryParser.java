@@ -11,7 +11,6 @@ public class DefaultCSVEntryParser implements CSVEntryParser<String[]> {
 	/**
 	 * returns the input...
 	 */
-	@Override
 	public String[] parseEntry(String... data) {
 		return data;
 	}

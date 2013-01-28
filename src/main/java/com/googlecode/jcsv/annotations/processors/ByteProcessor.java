@@ -14,7 +14,6 @@ public class ByteProcessor implements ValueProcessor<Byte> {
 	 *
 	 * @return Byte the result
 	 */
-	@Override
 	public Byte processValue(String value) {
 		return Byte.parseByte(value);
 	}

@@ -30,7 +30,6 @@ public class CSVReaderImpl<E> implements CSVReader<E> {
 	}
 
 
-	@Override
 	public List<E> readAll() throws IOException {
 		List<E> entries = new ArrayList<E>();
 
@@ -42,7 +41,6 @@ public class CSVReaderImpl<E> implements CSVReader<E> {
 		return entries;
 	}
 
-	@Override
 	public E readNext() throws IOException {
 		if (strategy.isSkipHeader() && !firstLineRead) {
 			reader.readLine();
@@ -75,7 +73,6 @@ public class CSVReaderImpl<E> implements CSVReader<E> {
 		return entry;
 	}
 
-	@Override
 	public List<String> readHeader() throws IOException {
 		if (firstLineRead) {
 			throw new IllegalStateException("can not read header, readHeader() must be the first call on this reader");
@@ -95,7 +92,6 @@ public class CSVReaderImpl<E> implements CSVReader<E> {
 	 *
 	 * @return Iterator<E> the iterator
 	 */
-	@Override
 	public Iterator<E> iterator() {
 		return new CSVIterator();
 	}
@@ -103,7 +99,6 @@ public class CSVReaderImpl<E> implements CSVReader<E> {
 	/**
 	 * {@link java.io.Closeable#close()}
 	 */
-	@Override
 	public void close() throws IOException {
 		reader.close();
 	}
@@ -127,7 +122,6 @@ public class CSVReaderImpl<E> implements CSVReader<E> {
 	private class CSVIterator implements Iterator<E> {
 		private E nextEntry;
 
-		@Override
 		public boolean hasNext() {
 			if (nextEntry != null) {
 				return true;
@@ -142,7 +136,6 @@ public class CSVReaderImpl<E> implements CSVReader<E> {
 			return nextEntry != null;
 		}
 
-		@Override
 		public E next() {
 			E entry = null;
 			if (nextEntry != null) {
@@ -159,7 +152,6 @@ public class CSVReaderImpl<E> implements CSVReader<E> {
 			return entry;
 		}
 
-		@Override
 		public void remove() {
 			throw new UnsupportedOperationException("this iterator doesn't support object deletion");
 		}

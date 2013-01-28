@@ -90,7 +90,6 @@ public class CSVReaderBuilder<E> implements Builder<CSVReader<E>> {
 	 *
 	 * @return the CSVReaderImpl instance
 	 */
-	@Override
 	public CSVReader<E> build() {
 		if (entryParser == null) {
 			throw new IllegalStateException("you have to specify a csv entry parser");

@@ -35,7 +35,6 @@ public class AnnotationEntryParser<E> implements CSVEntryParser<E> {
 	/**
 	 * {@link CSVEntryParser#parseEntry(String...)}
 	 */
-	@Override
 	public E parseEntry(String... data) {
 		// create the instance
 		E entry = newClassIntance();

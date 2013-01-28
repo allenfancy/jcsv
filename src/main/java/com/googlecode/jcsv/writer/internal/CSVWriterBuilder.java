@@ -69,7 +69,6 @@ public class CSVWriterBuilder<E> implements Builder<CSVWriter<E>>{
 	 *
 	 * @return the CSVWriterImpl instance
 	 */
-	@Override
 	public CSVWriter<E> build() {
 		if (entryConverter == null) {
 			throw new IllegalStateException("you have to specify an entry converter");

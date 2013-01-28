@@ -19,7 +19,6 @@ public class SimpleCSVColumnJoiner implements CSVColumnJoiner {
 	 * Performs a CSVUtil.implode() to concat the columns, it uses
 	 * the delimiter specified by the csv strategy.
 	 */
-	@Override
 	public String joinColumns(String[] data, CSVStrategy strategy) {
 		return CSVUtil.implode(data, String.valueOf(strategy.getDelimiter()));
 	}
