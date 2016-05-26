@@ -4,7 +4,7 @@ import com.googlecode.jcsv.annotations.ValueProcessor;
 
 /**
  * Processes character values.
- *
+ * 字符
  * @author Eike Bergmann
  *
  */

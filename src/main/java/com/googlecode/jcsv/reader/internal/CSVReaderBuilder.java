@@ -12,14 +12,16 @@ import com.googlecode.jcsv.util.Builder;
 
 /**
  * The Builder that creates the CSVReaderImpl objects.
- *
+ * 使用Builder模式创建一个CSVReader实现
  * @param <E>
  *            The Type that your rows represent
  */
 public class CSVReaderBuilder<E> implements Builder<CSVReader<E>> {
-
+	//读取流
 	final Reader reader;
+	//CSV条目解析类
 	CSVEntryParser<E> entryParser;
+	//使用默认条目
 	CSVStrategy strategy = CSVStrategy.DEFAULT;
 	CSVEntryFilter<E> entryFilter;
 	CSVTokenizer tokenizer = new CSVTokenizerImpl();

@@ -4,7 +4,7 @@ import com.googlecode.jcsv.annotations.ValueProcessor;
 
 /**
  * Processes double values.
- *
+ * Double字段类型处理
  * @author Eike Bergmann
  *
  */

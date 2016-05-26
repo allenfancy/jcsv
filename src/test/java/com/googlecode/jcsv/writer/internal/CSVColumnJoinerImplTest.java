@@ -20,18 +20,21 @@ public class CSVColumnJoinerImplTest extends TestCase {
 		String[] data = {"A", "B", "C"};
 		String result = columnJoiner.joinColumns(data, strategy);
 		String expected = "A;B;C";
+		System.out.println(result);
 		assertEquals(expected, result);
 
 		// single token test
 		data = new String[]{"A"};
 		result = columnJoiner.joinColumns(data, strategy);
 		expected = "A";
+		System.out.println(result);
 		assertEquals(expected, result);
 
 		// empty array test
 		data = new String[0];
 		result = columnJoiner.joinColumns(data, strategy);
 		expected = "";
+		System.out.println(result);
 		assertEquals(expected, result);
 
 		// more complex test cases
@@ -39,12 +42,14 @@ public class CSVColumnJoinerImplTest extends TestCase {
 		data = new String[]{"A", "B", "C;D"};
 		result = columnJoiner.joinColumns(data, strategy);
 		expected = "A;B;\"C;D\"";
+		System.out.println(result);
 		assertEquals(expected, result);
 
 		// quote in token
 		data = new String[]{"A", "B", "C\";\"D"};
 		result = columnJoiner.joinColumns(data, strategy);
 		expected = "A;B;\"C\"\";\"\"D\"";
+		System.out.println(result);
 		assertEquals(expected, result);
 	}
 }

@@ -10,13 +10,14 @@ import com.googlecode.jcsv.reader.CSVTokenizer;
 
 /**
  * This is the default implementation of the CSVTokenizer.
- *
+ * CSV分词器默认实现
  * This implementation follows the csv formatting standard, described in:
  * http://en.wikipedia.org/wiki/Comma-separated_values
  *
  * If you have a more specific csv format, such as constant column widths or
  * columns that do not need to be quoted, you may consider to write a more simple
  * but performant CSVTokenizer.
+ * 如果你有更多的CSV
  *
  */
 public class CSVTokenizerImpl implements CSVTokenizer {

@@ -12,11 +12,10 @@ import com.googlecode.jcsv.writer.CSVEntryConverter;
 public class DefaultCSVEntryConverter implements CSVEntryConverter<String[]> {
 	/**
 	 * Simply returns the data that it receives.
+	 * 简单的返回接收到的值，不做任何的处理
+	 * @param data the incoming data
 	 *
-	 * @param data
-	 *            the incoming data
-	 *
-	 * @return the incoming data ;)
+	 * @return the incoming data ;
 	 */
 	public String[] convertEntry(String[] data) {
 		return data;

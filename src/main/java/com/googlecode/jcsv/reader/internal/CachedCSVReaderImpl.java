@@ -8,21 +8,26 @@ import java.util.NoSuchElementException;
 import com.googlecode.jcsv.reader.CSVReader;
 import com.googlecode.jcsv.reader.CachedCSVReader;
 
-
+/**
+ * CSV缓存读取实现
+ * @author allen
+ *
+ * @param <E>
+ */
 public class CachedCSVReaderImpl<E> implements CachedCSVReader<E> {
 
 	private final CSVReader<E> reader;
-
+	//缓存条目
 	private final List<E> cachedEntries;
+	//当前下标
 	private int currentIndex;
 
 	public CachedCSVReaderImpl(CSVReader<E> reader) {
 		this.reader = reader;
 		this.cachedEntries = new ArrayList<E>();
-
 		currentIndex = -1;
 	}
-
+	//下一个
 	public boolean hasNext() {
 		if (currentIndex + 1 >= cachedEntries.size()) {
 			cacheNextEntry();
@@ -102,7 +107,7 @@ public class CachedCSVReaderImpl<E> implements CachedCSVReader<E> {
 	private void readUntil(int i) {
 		while (cacheNextEntry() && cachedEntries.size() <= i);
 	}
-
+	//缓存下一个条目
 	private boolean cacheNextEntry() {
 		boolean success = false;
 		try {

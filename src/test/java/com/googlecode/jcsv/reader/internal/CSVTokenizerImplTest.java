@@ -16,6 +16,16 @@ import com.googlecode.jcsv.reader.CSVTokenizer;
 public class CSVTokenizerImplTest {
 
 	@Test
+	public void testCSVTokenizerImpl() throws IOException{
+		CSVTokenizer to = new CSVTokenizerImpl();
+		final CSVStrategy strategy = CSVStrategy.DEFAULT;
+		final String delimiter = String.valueOf(strategy.getDelimiter());
+		String line = "A;B;C";
+		List<String> list = to.tokenizeLine(line, strategy, null);
+		System.out.println(list.size());
+	}
+	
+	@Test
 	@SuppressWarnings("serial")
 	public void testTokenizeLine() throws IOException {
 		CSVTokenizer tokenizer = new CSVTokenizerImpl();

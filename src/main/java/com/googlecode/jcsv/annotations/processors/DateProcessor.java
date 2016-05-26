@@ -8,7 +8,7 @@ import com.googlecode.jcsv.annotations.ValueProcessor;
 
 /**
  * Processes Date values, using a specified DateFormat.
- * 
+ * 时间处理类
  * By default, the ValueProcessorProvider uses {@link DateFormat#getDateInstance()}
  * as the DateFormat.
  * 

@@ -10,6 +10,17 @@ import com.googlecode.jcsv.writer.CSVColumnJoiner;
 public class SimplCSVColumnJoinerTest extends TestCase {
 
 	@Test
+	public void testSimpleCSVColumnJoinerTest(){
+		CSVColumnJoiner columnJoiner = new SimpleCSVColumnJoiner();
+
+		// uses ; as delimiter
+		final CSVStrategy strategy = CSVStrategy.DEFAULT;
+		String[] data = {"A", "B", "C"};
+		String result = columnJoiner.joinColumns(data, strategy);
+		System.out.println(result);
+	}
+	
+	@Test
 	public void testJoinColumns() {
 		CSVColumnJoiner columnJoiner = new SimpleCSVColumnJoiner();
 

@@ -9,7 +9,7 @@ import com.googlecode.jcsv.reader.CSVEntryParser;
 
 /**
  * Parses a csv entry, based on an annotated class.
- * 
+ * 解析一个csv 条目，基于注解
  * @author Eike Bergmann
  * 
  * @param <E>
@@ -18,12 +18,12 @@ import com.googlecode.jcsv.reader.CSVEntryParser;
 public class AnnotationEntryParser<E> implements CSVEntryParser<E> {
 
 	private final Class<E> clazz;
-	
+	//值处理器
 	private final ValueProcessorProvider provider;
 
 	/**
 	 * Constructs a AnnotationEntryParser for type E.
-	 * 
+	 * 构造一个匿名的条目解析
 	 * @param clazz
 	 *            the annotated class, and the class of the csv entries
 	 */
@@ -34,6 +34,7 @@ public class AnnotationEntryParser<E> implements CSVEntryParser<E> {
 
 	/**
 	 * {@link CSVEntryParser#parseEntry(String...)}
+	 * 
 	 */
 	public E parseEntry(String... data) {
 		// create the instance
@@ -55,6 +56,7 @@ public class AnnotationEntryParser<E> implements CSVEntryParser<E> {
 	private E newClassIntance() {
 		E entry;
 		try {
+			//通过反射
 			entry = clazz.newInstance();
 		} catch (InstantiationException ie) {
 			throw new RuntimeException(String.format("can not instantiate class %s", clazz.getName()), ie);
@@ -67,7 +69,7 @@ public class AnnotationEntryParser<E> implements CSVEntryParser<E> {
 
 	/**
 	 * Fill the instance of E with the data of the csv row.
-	 * 
+	 * 将一行CSV行转为一个对象实例
 	 * This method iterates over the annotations that are present in the target
 	 * class and uses the appropriate value processors to set the data.
 	 * 
@@ -79,6 +81,7 @@ public class AnnotationEntryParser<E> implements CSVEntryParser<E> {
 	private void fillObject(E entry, String[] data) {
 		for (Field field : entry.getClass().getDeclaredFields()) {
 			// check if there is a MapToColumn Annotation
+			//如果这里是一个MapToColumn注解
 			MapToColumn mapAnnotation = field.getAnnotation(MapToColumn.class);
 			if (mapAnnotation != null) {
 				// read the annotation column
@@ -107,6 +110,7 @@ public class AnnotationEntryParser<E> implements CSVEntryParser<E> {
 				
 				// try to set the field's value
 				try {
+					//给对应的属性设对应的值
 					field.set(entry, value);
 				} catch (IllegalArgumentException iae) {
 					throw new RuntimeException(String.format("can not set value %s for type %s", value, type), iae);

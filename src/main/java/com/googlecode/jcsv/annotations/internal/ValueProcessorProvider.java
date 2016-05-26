@@ -21,7 +21,7 @@ import com.googlecode.jcsv.annotations.processors.StringProcessor;
  * The ValueProcessorProvider is a static cache for the ColumnProcessors.
  * It is a cache that maps Classes to ColumnProcessors. The AnnotationEntryParser
  * uses this cache to retrieve the the processor for a specific class.
- *
+ * 值处理器提供类，为Column处理器提供一个静态的缓存。
  * There a several preconfigured processors, such as the primitives, its wrapper
  * classes and the String class.
  * If you want to add a new processor, you can register one using the
@@ -29,9 +29,9 @@ import com.googlecode.jcsv.annotations.processors.StringProcessor;
  *
  */
 public class ValueProcessorProvider {
-
+	//处理器
 	private final Map<Class<?>, ValueProcessor<?>> processors = new HashMap<Class<?>, ValueProcessor<?>>();
-
+	//原始包装类Boolean Integer等
 	private final Map<Class<?>, Class<?>> primitiveWrapperTypes = new HashMap<Class<?>, Class<?>>();
 
 	public ValueProcessorProvider() {
@@ -41,28 +41,29 @@ public class ValueProcessorProvider {
 
 	/**
 	 * Registers a ValueProcessor for class clazz.
-	 *
+	 * 
 	 * @param clazz the class that the processor should convert
 	 * @param processor the processor
 	 */
 	public <E> void registerValueProcessor(Class<E> clazz, ValueProcessor<? extends E> processor) {
+		//如果类是原始包装类
 		if (clazz.isPrimitive()) {
 			throw new IllegalArgumentException(
 					"can not register value processor for a primitive type, register it for the wrapper type instead");
 		}
-
+		//值处理器中是否已经包含
 		if (processors.containsKey(clazz)) {
 			throw new IllegalArgumentException(String.format(
 					"can not register value processor for %s, it is already registered.", clazz));
 		}
-
+		//放入在值处理器中
 		processors.put(clazz, processor);
 	}
 
 	/**
 	 * Removes a ValueProcessor from the cache. You have to call this method
 	 * before registering a new value processor for an existing class.
-	 *
+	 *	移除只处理器
 	 * @param clazz the class
 	 */
 	public <E> void removeValueProcessor(Class<E> clazz) {
@@ -76,7 +77,7 @@ public class ValueProcessorProvider {
 
 	/**
 	 * Returns the value processor for class clazz.
-	 *
+	 * 返回值处理器类
 	 * @param clazz the class
 	 * @return the appropriate value processor
 	 */
@@ -94,7 +95,7 @@ public class ValueProcessorProvider {
 		// this cast is safe due to the registerValueProcessor method
 		return ((ValueProcessor<E>) processors.get(clazz));
 	}
-	
+	//注册默认的值处理器
 	private void registerDefaultValueProcessors() {
 		registerValueProcessor(String.class, new StringProcessor());
 		registerValueProcessor(Boolean.class, new BooleanProcessor());
@@ -107,7 +108,7 @@ public class ValueProcessorProvider {
 		registerValueProcessor(Short.class, new ShortProcessor());
 		registerValueProcessor(Date.class, new DateProcessor(DateFormat.getDateInstance()));
 	}
-	
+	//添加原始处理器
 	private void fillPrimitiveWrapperTypesMap() {
 		primitiveWrapperTypes.put(boolean.class, Boolean.class);
 		primitiveWrapperTypes.put(byte.class, Byte.class);

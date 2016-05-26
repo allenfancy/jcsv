@@ -4,7 +4,7 @@ import com.googlecode.jcsv.annotations.ValueProcessor;
 
 /**
  * Processes short values.
- *
+ * Short类型
  * @author Eike Bergmann
  *
  */

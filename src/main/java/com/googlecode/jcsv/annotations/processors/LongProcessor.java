@@ -4,7 +4,7 @@ import com.googlecode.jcsv.annotations.ValueProcessor;
 
 /**
  * Processes long values.
- *
+ * Long字段类型处理类
  * @author Eike Bergmann
  *
  */

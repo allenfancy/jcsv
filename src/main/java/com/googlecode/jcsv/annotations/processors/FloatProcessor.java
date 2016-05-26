@@ -4,7 +4,7 @@ import com.googlecode.jcsv.annotations.ValueProcessor;
 
 /**
  * Processes float values.
- *
+ * Float类型字段处理类
  * @author Eike Bergmann
  *
  */

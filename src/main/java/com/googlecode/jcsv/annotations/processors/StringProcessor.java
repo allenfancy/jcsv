@@ -4,7 +4,7 @@ import com.googlecode.jcsv.annotations.ValueProcessor;
 
 /**
  * Processes String values.
- *
+ * String类型处理类
  * @author Eike Bergmann
  *
  */

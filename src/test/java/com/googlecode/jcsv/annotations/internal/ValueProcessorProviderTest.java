@@ -16,6 +16,7 @@ public class ValueProcessorProviderTest {
 	@Before
 	public void setUp() {
 		provider = new ValueProcessorProvider();
+		//移除
 		provider.removeValueProcessor(Integer.class);
 	}
 	
